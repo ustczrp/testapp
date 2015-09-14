@@ -4,16 +4,23 @@
  </head>
  <body>
  <?php echo '<p>This is just an Azure Web app test!</p>'; 
-$serverName = "gr2nwytk2y"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"ngdb", "UID"=>"webappdb", "PWD"=>"Mydbpassword123");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-if( $conn ) {
-     echo "Connection established.<br />";
-}else{
-     echo "Connection could not be established.<br />";
-     die( print_r( sqlsrv_errors(), true));
+$server = "gr2nwytk2y.database.windows.net,1433";
+$username = "webappdb@gr2nwytk2y";
+$password = "Mydbpassword123";
+$database = "ngdb";
+try
+{
+    $conn = new PDO("sqlsrv:server=$server ; Database = $database", $username, $password);
 }
+catch(Exception $e)
+{
+    die(print_r($e));
+}
+
+
+
+
 
 
 ?>
