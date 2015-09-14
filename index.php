@@ -27,24 +27,7 @@
         {
             echo "Connection was established"; 
             echo "<br>";
-
-            $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
-            $getProducts = sqlsrv_query($conn, $tsql);
-            if ($getProducts == FALSE)
-                die(FormatErrors(sqlsrv_errors()));
-            $productCount = 0;
-            $ctr = 0;
-            while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
-            {   
-                $ctr++;
-                echo($row['CompanyName']);
-                echo("<br/>");
-                $productCount++;
-                if($ctr>10)
-                    break;
-            }
-            sqlsrv_free_stmt($getProducts);
-            break;
+         	 phpinfo();
         }
         // Adds any the error codes from the SQL Exception to an array.
         else {  
@@ -90,8 +73,9 @@
         if($count >= 0) //change to > 0 later.
             return TRUE;
     }
+
 ?>
- <?php phpinfo(); ?>
+
  </body>
 </html>
 
