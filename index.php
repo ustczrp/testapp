@@ -13,6 +13,7 @@
     $secondsBetweenRetries = 4;  // Simple retry strategy.
     $errNo = 0;
     $serverName = "tcp:10.1.0.4,3306";
+    
     $connectionOptions = array("Database"=>"mysql",
        "Uid"=>"root", "PWD"=>"Root123", "LoginTimeout" => $connectionTimeoutSeconds);
     $conn;
@@ -22,7 +23,8 @@
         $errorArr = array();
         $ctr = 0;
         // [A.2] Connect, which proceeds to issue a query command. 
-        $conn = sqlsrv_connect($serverName, $connectionOptions);  
+        // $conn = sqlsrv_connect($serverName, $connectionOptions);
+        $conn = mysqli_connect('10.1.0.4', 'root', 'Root123','mysql');
         if( $conn == true)
         {
             echo "Connection was established"; 
