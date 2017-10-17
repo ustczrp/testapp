@@ -12,9 +12,9 @@
     $maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
     $secondsBetweenRetries = 4;  // Simple retry strategy.
     $errNo = 0;
-    $serverName = "tcp:va3tesrmha.database.windows.net,1433";
-    $connectionOptions = array("Database"=>"ngdb",
-       "Uid"=>"webappdb", "PWD"=>"Mydbpassword123", "LoginTimeout" => $connectionTimeoutSeconds);
+    $serverName = "tcp:10.1.0.4,3306";
+    $connectionOptions = array("Database"=>"mysql",
+       "Uid"=>"root", "PWD"=>"Root123", "LoginTimeout" => $connectionTimeoutSeconds);
     $conn;
     $errorArr = array();
     for ($cc = 1; $cc <= $maxCountTriesConnectAndQuery; $cc++)
